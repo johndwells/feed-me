@@ -132,14 +132,10 @@ class Assets extends Field implements FieldInterface
             $criteria['kind'] = $settings['allowedKinds'];
             $criteria['limit'] = $limit;
 
-            if(is_numeric($dataValue))
-            {
+            if(is_numeric($dataValue)) {
                 $criteria['id'] = $dataValue;
-            }
-            else
-            {
-                $filename = AssetsHelper::prepareAssetName($dataValue);
-                $criteria['filename'] = $filename;
+            } else {
+                $criteria['filename'] = AssetsHelper::prepareAssetName($dataValue);
             }
 
             $criteria['includeSubfolders'] = true;
