@@ -127,8 +127,6 @@ class Assets extends Field implements FieldInterface
                 $base64ToUpload[$key] = $dataValue;
             }
 
-            $filename = AssetsHelper::prepareAssetName($dataValue);
-
             $criteria['status'] = null;
             $criteria['folderId'] = $folderIds;
             $criteria['kind'] = $settings['allowedKinds'];
