@@ -133,7 +133,17 @@ class Assets extends Field implements FieldInterface
             $criteria['folderId'] = $folderIds;
             $criteria['kind'] = $settings['allowedKinds'];
             $criteria['limit'] = $limit;
-            $criteria['filename'] = $filename;
+
+            if(is_numeric($dataValue))
+            {
+                $criteria['id'] = $dataValue;
+            }
+            else
+            {
+                $filename = AssetsHelper::prepareAssetName($dataValue);
+                $criteria['filename'] = $filename;
+            }
+
             $criteria['includeSubfolders'] = true;
 
             Craft::configure($query, $criteria);
